@@ -1,0 +1,88 @@
+/* Общие стили для страницы */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
+}
+
+/* Центрирование и оформление контейнера */
+.container {
+  max-width: 500px;
+  max-height: 400px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Стили для заголовка */
+header h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Стили для формы записи */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.success-message {
+  margin-top: 25px;
+  padding: 10px;
+  background-color: #d4edda; /* Светло-зеленый фон */
+  color: #155724; /* Темно-зеленый текст */
+  border: 1px solid #c3e6cb; /* Светло-зеленая рамка */
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.not-success-message {
+  margin-top: 25px;
+  padding: 10px;
+  background-color: #F08080; /* Светло-зеленый фон */
+  color: #155724; /* Темно-зеленый текст */
+  border: 1px solid #c3e6cb; /* Светло-зеленая рамка */
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Стили для кнопки добавления записи */
+.add-record {
+  background: linear-gradient(135deg, #57708b, #121d2a);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-record:hover {
+  background: linear-gradient(135deg, #121d2a, #57708b);
+}

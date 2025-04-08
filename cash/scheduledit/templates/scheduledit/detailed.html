@@ -1,0 +1,44 @@
+{% extends "includes/base.html" %}
+{% load static %}
+
+
+
+{%block header %}
+    <meta charset="UTF-8">
+    <title>Подробнее о машине</title>
+    <link rel="stylesheet" href="{% static 'css/style_detailed.css' %}">
+{%endblock%}
+
+
+{% block content %}
+
+<div class="container">
+    <div class="times">
+        <h3>Запись на день</h3>
+        <ul>
+            {% for t in all_times %}
+                <li class="time-slot">
+                    <div class="time">{{ t.time }}</div>
+                    {% if t.user_info %}
+                        <div class="user-info">
+                            <p><strong>{{ t.user_info.first_name }} {{ t.user_info.last_name }}</strong></p>
+                            <p>{{ t.user_info.phone }}</p>
+                            <form action="{% url 'users:profile_student' %}" method="GET" >
+                                <input type="hidden" name="id" value="{{t.user_id}}">
+                                <button class="btn_profile_student" type="submit">Профиль ученика</button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <div class="no-user">Нет записи</div>
+                    {% endif %}
+
+                </li>
+            {% empty %}
+                <li class="no-slots">Нет доступных слотов</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+{% endblock %}

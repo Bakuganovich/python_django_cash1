@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Курс по обучению вождению</title>
+  <link rel="stylesheet" href="{% static 'css/style_info_course.css' %}">
+  <!-- Подключаем Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="course-card">
+    <img src="{% static 'images/image 20.png' %}" alt="Курс по обучению вождению" class="course-image">
+    <div class="course-content">
+      <h2>Курс по обучению вождению</h2>
+	  <h4>Теория</h4>
+      <p class="course-description">
+		Срок обучения в нашей автошколе 3 месяца. Занятия проходят в вечерних группах с 18-00, есть группы выходного дня, также предусмотрено индивидуальное обучение.
+      </p>
+
+	  <h4>Практика</h4>
+      <p class="course-description">
+	Каждому ученику предоставляется 56 часов вождения. Наш автопарк укомплектован автомобилями Renault Logan, Fiat Punto, Chevrolet Lanos и Lada Granta.
+      </p>
+      <div class="course-info">
+        <span class="course-duration"><strong>Длительность:</strong> 3 месяца</span>
+        <span class="course-schedule"><strong>Расписание:</strong> Сб, Вс, Вт, Пт – 18:00–20:00</span>
+      </div>
+      <p class="course-price"><strong>Стоимость:</strong> 60 000 руб.</p>
+      <a href="https://vk.com/im?sel=-147845620" target="_blank" class="enroll-button">Связаться с нами</a>
+    </div>
+  </div>
+</body>
+</html>

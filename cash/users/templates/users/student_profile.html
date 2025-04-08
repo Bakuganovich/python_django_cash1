@@ -1,0 +1,119 @@
+{% extends "includes/base.html" %}
+{% load static %}
+
+{%block header %}
+    <title>Личный кабинет ученика автошколы</title>
+{%endblock%}
+
+
+{%block content %}
+    <main class="content">
+        <header>
+        </header>
+        <section class="profile">
+            <form action="{% url 'users:profile'%}" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+
+                {%if url != '/media/' %}
+                    <img src="{{url}}"
+                        alt="Аватар пользователя" class="avatar">
+                {%else%}
+                     <img src="{% static 'images/anonymous.jpg' %}" alt="" class="avatar">
+                {%endif%}
+
+
+<!--                <label >Изменить фото*</label>-->
+<!--                <input type="file"-->
+<!--                       id="id_image"-->
+<!--                       name="image"-->
+<!--                       class="change_img"-->
+<!--                       accept="image/*">-->
+
+
+                <div class="col-md-12 mb-3">
+                    <label for="id_first_name">Имя*</label>
+                    <input type="text"
+                               id="id_first_name"
+                               name="first_name"
+                               placeholder="Введите ваше имя"
+                               value="{{form.first_name.value}}" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                        <label for="id_last_name" >Фамилия*</label>
+                        <input type="text"
+                               id="id_last_name"
+                               name="last_name"
+                               placeholder="Введите вашу фамилию"
+                               value="{{form.last_name.value}}" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                        <label for="id_username" >Имя пользователя*</label>
+                        <input type="text"
+                               id="id_username"
+                               name = 'username'
+                               placeholder="Введите ваше имя пользователя"
+                               value="{{form.username.value}}" required>
+                </div>
+
+                    {%if user.is_admin or user.is_staff %}
+                        <div class="col-md-12 mb-3">
+                            <label for="id_phone" >Номер телефона*</label>
+                            <input type="text"
+                                   id="id_phone"
+                                   name = 'phone'
+                                   placeholder="8-999-999-99-99"
+                                   value="{{form.phone.value}}" required>
+                        </div>
+                    {% else %}
+                        <div class="col-md-12 mb-3">
+                            <label for="id_phone" >Номер телефона*</label>
+                            <input type="text"
+                                   id="id_phone"
+                                   name = 'phone'
+                                   placeholder="8-999-999-99-99"
+                                   value="{{form.phone.value}}" required>
+                        </div>
+                    {%endif%}
+
+<!--                <button type="submit" class="btn">Сохранить</button>-->
+            </form>
+        </section>
+<!--        <section class="course-info">-->
+<!--            <h3>Курс теории</h3>-->
+<!--            <p>Пройдено занятий: 15 из 20</p>-->
+<!--            <p>Следующее занятие: 10 марта 2025</p>-->
+<!--        </section>-->
+        <section class="course-info">
+            <h3>Курс практики</h3>
+            <p>Пройдено занятий: {%if completed_classes is None%} 0 {%else%} {{completed_classes}} {%endif%} из 26</p>
+            <p>Следующее занятие:</p>
+            {% for i in booking%}
+            <p>{{i.car_model}} {{i.date}} {{i.time}}
+                {%if i.status == 'confirmed' %}
+                    <span class="status-confirmed">Подтверждено</span>
+                {%elif i.status == 'rejected' %}
+                    <span class="status-rejected">Отклонено</span>
+                {%elif i.status == 'pending' %}
+                    <span class="status-pending">Ожидание</span>
+                {% endif%}
+
+                {%if user.is_admin or user.is_staff %}
+                    <form action=" {% url 'users:approvall'%}" method="POST"  class="decision-buttons">
+                        {%csrf_token%}
+                        <input type="hidden" name="model" value="{{i.car_model}}">
+                        <input type="hidden" name="date" value="{{i.date|date:'Y-m-d'}}">
+                        <input type="hidden" name="time" value="{{i.time}}">
+                        <input type="hidden" name="student" value="{{i.user}}">
+                        {% if i.status == 'pending' %}
+                            <button type="submit" name='decision' value="approved" class="approve-btn">Подтвердить</button>
+                            <button type="submit" name='decision' value="rejected" class="reject-btn">Отклонить</button>
+                        {%endif%}
+
+                    </form>
+                {%endif%}
+
+            </p>
+            {% endfor %}
+        </section>
+    </main>
+{%endblock%}

@@ -1,0 +1,70 @@
+.container {
+  max-width: 1000px;
+  max-height: 45%;
+  margin: 10px auto;
+  background: #ffffff;
+  padding: 20px;
+}
+input{
+    width: 100%;
+}
+.container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.schedule {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+}
+
+.card {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1 1 calc(25% - 40px); /* 4 карточки в ряд */
+    text-align: center;
+    min-width: 150px;
+    max-width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+
+button {
+    background: linear-gradient(135deg, #57708b, #121d2a);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button:hover {
+    background: rgba(18, 29, 42, 0.23);
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+    .card {
+        flex: 1 1 calc(50% - 40px); /* 2 карточки в ряд на средних экранах */
+    }
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    .card {
+        flex: 1 1 100%; /* Одна карточка в ряд на узких экранах */
+    }
+}

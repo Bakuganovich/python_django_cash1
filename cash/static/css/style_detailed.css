@@ -1,0 +1,154 @@
+<style>
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Контейнер для страницы */
+.container {
+    max-width: 1200px;
+    min-width:450px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Информация о дне */
+.info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.info h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.info h3 {
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* Раздел с временем */
+.times {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.times h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+/* Список времени */
+ul {
+    list-style-type: none;
+}
+
+.time-slot {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+
+.time {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-right: 20px; /* Увеличиваем отступ справа */
+}
+
+.user-info {
+    text-align: right;
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px; /* Увеличиваем отступ сверху для большего расстояния */
+}
+
+.no-user {
+    font-size: 1rem;
+    color: #ff6347;
+    font-style: italic;
+}
+
+.no-slots {
+    font-size: 1.2rem;
+    color: #ff6347;
+    text-align: center;
+}
+
+/* Кнопка "Профиль ученика" */
+.btn_profile_student {
+    background-color: #4CAF50; /* Зеленый цвет фона */
+    color: white; /* Белый цвет текста */
+    padding: 10px 20px; /* Отступы */
+    font-size: 1rem; /* Размер шрифта */
+    font-weight: bold; /* Полужирный шрифт */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 25px; /* Округлые края */
+    cursor: pointer; /* Курсор в виде руки */
+    transition: all 0.3s ease; /* Плавный переход для изменения состояния */
+}
+
+/* Состояние кнопки при наведении */
+.btn_profile_student:hover {
+    background-color: #45a049; /* Немного темнее при наведении */
+    transform: translateY(-3px); /* Легкое поднятие кнопки */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+}
+
+/* Состояние кнопки при нажатии */
+.btn_profile_student:active {
+    background-color: #388e3c; /* Еще более темный зеленый */
+    transform: translateY(0); /* Возвращаем кнопку в исходное положение */
+    box-shadow: none; /* Убираем тень */
+}
+
+
+/* Мобильная адаптивность */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .info h1 {
+        font-size: 2rem;
+    }
+
+    .info h3 {
+        font-size: 1rem;
+    }
+
+    .times h3 {
+        font-size: 1.25rem;
+    }
+
+    .time-slot {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-info {
+        text-align: left;
+        margin-top: 15px; /* Еще большее расстояние на мобильных устройствах */
+    }
+
+    .time {
+        font-size: 1.1rem;
+    }
+}
+

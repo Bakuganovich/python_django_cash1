@@ -1,0 +1,60 @@
+{% extends "includes/base.html" %}
+{% load static %}
+
+{%block header %}
+<meta charset="UTF-8">
+<title>Запись на занятия по вождению</title>
+<link rel="stylesheet" href="{% static 'css/style_timetabledit.css' %}">
+{%endblock%}
+
+
+{%block content %}
+    <div class="container">
+        <h1>Расписание занятий по вождению</h1>
+
+
+
+        <div class="schedule">
+
+            <div class="card">
+                <h2>Добавить</h2>
+                <form action="{% url 'scheduledit:timetable_add' %}" method="POST">
+                    {%csrf_token%}
+                    <p><input
+                            type="text"
+                            name="name"
+                            placeholder="Модель авто"></p>
+                    <p><input
+                            type="date"
+                            name="date"
+                            placeholder="Дата"></p>
+                <button type="submit" >Сохранить</button>
+                </form>
+                <p>{{error}}</p>
+            </div>
+
+            {% for car in cars %}
+                <div class="card">
+                    <h2>{{car.name}}</h2>
+                    <p><strong>Дата:</strong> {{car.date}}</p>
+
+                    <form action="{% url 'scheduledit:detailed' %}" method="GET" >
+                        <input type="hidden" name="name" value="{{ car.name }}">
+                        <input type="hidden" name="date" value="{{  car.date|date:'Y-m-d' }}">
+                        <button type="submit">Подробнее</button>
+                    </form>
+                    <p>
+
+                        <form action="{% url 'scheduledit:timetable_delete' %}" method="POST">
+                            {%csrf_token%}
+                            <input type="hidden" name="name" value="{{ car.name }}">
+                            <input type="hidden" name="date" value="{{  car.date|date:'Y-m-d' }}">
+                            <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить запись?');">Удалить</button>
+                        </form>
+                    </p>
+                </div>
+            {%endfor%}
+
+        </div>
+    </div>
+{%endblock%}

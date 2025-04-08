@@ -1,0 +1,497 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+body::-webkit-scrollbar {
+  width: 13px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: #121d2a;        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ffff;    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  border: 3px solid #121d2a;  /* padding вокруг плашки */
+}
+
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+
+
+
+header {
+    background: linear-gradient(135deg, #57708b, #121d2a);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Новый контейнер шапки */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;  /* здесь можно задать нужную высоту */
+  position: relative;
+  padding: 0 20px; /* отступы по бокам */
+}
+
+.labal_menu{				/* Надпись MENU */
+		display:none;
+
+}
+
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+	margin: auto 5%;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+
+}
+
+
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #A55BFA;
+}
+
+/* Адаптивное меню */
+@media (max-width: 1100px) {
+	.logo{
+		display: none
+	}
+}
+
+@media (max-width: 768px) {   /* Логотип (для мобильной версии остаётся фиксированным в левом верхнем углу) */
+	.header-container {
+		height: 30px;
+	}
+	.logo {
+		display: flex;
+		transform: scale(0.65);
+		position: absolute;
+		top: -20px;
+		left: 10px;
+	}
+	.logo img {
+		width: 100px;  /* уменьшаем логотип */
+	}
+
+	.labal_menu{  	   /* Надпись MENU */
+		display: flex;
+		position: absolute;
+		top: 15%;
+		left: 65%;
+
+	}
+
+	/* Гамбургер-иконка */
+	.hamburger {
+		display: flex;
+		position: absolute;
+		top: 0px;
+		right: 25px;
+		flex-direction: column;
+		cursor: pointer;
+		z-index: 1100;
+	}
+	.hamburger span {
+		height: 3px;
+		width: 25px;
+		background: #fff;
+		margin: 4px 0;
+		transition: 0.4s;
+	}
+
+	/* Навигация */
+	.navigation {
+		display: none;
+		position: absolute;
+		width: 120%;
+		top: 165%; /* ниже шапки */
+		right: -10%;
+		background-color: rgba(0, 0, 0, 0.8);
+		padding: 20px;
+		border-radius: 5px;
+		z-index: 1200;
+		opacity: 1;
+	}
+	.navigation.active {
+		display: block;
+	}
+
+	/* Вертикальное меню */
+	nav ul {
+		flex-direction: column;
+		gap: 10px;
+	}
+	.info_stop{
+		display: none;
+	}
+}
+
+@media (max-width: 500px) {
+	nav ul li a {
+		font-size: 1rem;
+	}
+}
+
+
+
+/* Слайдер */
+
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+.caption {
+    position: absolute;
+	left: 18%;
+	width: 20%;
+    bottom: 25%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.caption h1{
+	font-size: 250%;
+    text-align: center;
+
+}
+
+.caption p{
+	font-size: 160%;
+		text-align: center;
+}
+
+
+
+button.prev,
+button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%;
+    user-select: none;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Адаптивный слайдер */
+@media (max-width: 1600px){
+	.caption h1{
+		font-size: 200%
+	}
+	.caption p {
+		font-size: 150%
+	}
+
+}
+
+@media (max-width: 1300px){
+	.caption h1{
+		font-size: 110%
+	}
+	.caption p {
+		font-size: 90%
+	}
+
+}
+
+@media (max-width: 768px) {
+
+	.slider {
+		height: 175px; /* Задаём нужную высоту, можно менять значение */
+	}
+	.slide img {
+		height: 175px;          /* Фиксированная высота изображения */
+		object-fit: cover;       /* Изображение охватывает всю область слайдера */
+	}
+
+    .caption {
+		bottom: 23%;
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    button.prev,
+    button.next {
+        font-size: 18px;
+        padding: 8px;
+    }
+	.caption h1{
+		font-size: 80%
+	}
+	.caption p {
+		font-size: 50%
+	}
+}
+
+@media (max-width: 450px) {
+    .caption {
+		width: 40%;
+		height: 55%;
+		bottom: 23%;
+        padding: 5px;
+    }
+
+    button.prev,
+    button.next {
+        font-size: 18px;
+        padding: 8px;
+    }
+	.caption h1{
+		font-size: 100%
+	}
+	.caption p {
+		font-size: 90%
+	}
+}
+
+
+
+/* Секции */
+section {
+    padding: 60px 0;
+    background-color: #fff;
+    margin-bottom: 40px;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2d3e50;
+}
+
+section p {
+    text-align: justify;
+    font-size: 1.35rem;
+}
+
+
+/* Курсы */
+.course-list {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.course {
+    background-color: #0D1544;
+    background:linear-gradient(135deg, #57708b, #121d2a);
+    color: #fff;
+    padding: 25px;
+    width: 31%;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course a{
+    text-decoration:none;
+     color: #fff;
+}
+
+.course:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.course h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fff;
+}
+.course div{
+	display: flex;
+	justify-content: center;
+	padding: 10px;
+}
+
+.course p {
+    text-align:center;
+}
+
+
+/* Адаптивность курсов */
+@media (max-width: 768px) {
+    .course {
+        width: 100%;
+    }
+}
+
+
+
+
+/* Преподаватели */
+.instructor-list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.instructor {
+    background-color: #fff;
+    color: #333;
+    padding: 25px;
+    width: 30%;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.instructor:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.instructor h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #2d3e50;
+}
+
+.instructor div{
+	display: flex;
+	justify-content: center;
+}
+.instructor p {
+    text-align:center;
+}
+
+/* Адаптивность преподавателей */
+@media (max-width: 768px) {
+    .instructor {
+        width: 100%;
+    }
+}
+
+/* Отзывы */
+.testimonial-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimonial {
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 25px;
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Адаптивность отзывов */
+@media (max-width: 768px) {
+    .testimonial {
+        width: 100%;
+    }
+}
+
+/* Карта */
+.carta {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 100%;
+    height: 400px;
+
+}
+
+/* Footer */
+footer {
+	background: linear-gradient(135deg, #57708b, #121d2a);
+/*    background: #2d3e50;*/
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+

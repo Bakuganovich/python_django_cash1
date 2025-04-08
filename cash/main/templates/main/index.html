@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Центральная автошкола</title>
+    <link rel="stylesheet" href="{% static 'css/style_main.css' %}">
+    <!-- Подключаем шрифт из Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+	<header>
+	  <div class="container header-container">
+		<div class="logo">
+		  <img src="{% static 'images/logocar.png' %}" alt="Логотип">
+		</div>
+		<div class="labal_menu">
+			MENU
+		</div>
+		<!-- Гамбургер -->
+		<div class="hamburger" id="hamburger">
+		  <span></span>
+		  <span></span>
+		  <span></span>
+		</div>
+		<!-- Навигация -->
+		<div class="navigation" id="navigation">
+		  <nav>
+			<ul>
+			  <li><a href="#home">Главная</a></li>
+			  <li><a href="#courses">Курсы</a></li>
+			  <li><a href="#instructors">Преподаватели</a></li>
+			  <li><a href="#contact">Контакты</a></li>
+			  <li><a href="#testimonials">Отзывы</a></li>
+			  <li><a href="{% url 'users:login'%}">Войти</a></li>
+			</ul>
+		  </nav>
+		</div>
+	  </div>
+	</header>
+
+
+	<!-- slider -->
+    <div class="slider"  class="content" id="content">
+        <div class="slides">
+            <div class="slide">
+                <img src="{% static 'images/image 23.png' %}" alt="Изображение 1">
+                <div class="caption">
+					<h1>Современные методики</h1>
+					<p> Опытные преподаватели и инструкторы</p>
+				</div>
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/image 22.png' %}" alt="Изображение 3">
+                <div class="caption">
+					<h1>Отличный автопарк</h1>
+					<p> Автомобили с кондиционером и видеонаблюдением</p>
+				</div>
+            </div>
+			<div class="slide">
+                <img src="{% static 'images/image 25.png' %}" alt="Изображение 2">
+                <div class="caption">
+					<h1>Гибкий график</h1>
+					<p> Возможность записываться на занятия в удобное время</p>
+				</div>
+            </div>
+        </div>
+        <button class="prev" aria-label="Предыдущий слайд">&#10094;</button>
+        <button class="next" aria-label="Следующий слайд">&#10095;</button>
+    </div>
+    <script src="{% static 'js/scripts_main.js' %}"></script>
+
+
+	<!-- About Section -->
+    <section id="home">
+		<div class="container">
+			 <h2>Немного о нас</h2>
+			<p class="info_stop" >Центральная автошкола предлагает уникальные программы обучения для водителей всех уровней. Мы проводим курсы для начинающих и опытных водителей, а также для тех, кто хочет повысить свою квалификацию.</p>
+			<br>
+			<p >Наша автошкола в Заречье на Литейной 12 уже много лет готовит и выпускает квалифицированных водителей автомобилей категории "B".
+                Не каждая автошкола в Туле может похвастаться собственным автодромом. Наш автодром находится в черте города (10 минут от автошколы), полностью оборудован и размечен в соответсвии с последними требованиями законодательства.
+                Благодаря тому что на нём занимается только наша автошкола на нем нет перегруженности и очередей.
+            </p>
+		</div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <h2>Наши курсы</h2>
+            <div class="course-list">
+
+                <div class="course">
+                    <a href="{% url 'main:info_course'%}">
+                        <h3>Курс для начинающих автолюбителей</h3>
+                        <div><img src="{% static 'images/image 12.png' %}"></div>
+                        <p>Профессиональное обучение вождению с нуля, включая теорию и практику для получения категирии В.</p>
+                    </a>
+                </div>
+
+                <div class="course">
+                    <a href="{% url 'main:info_course'%}">
+                        <h3>Курс для начинающих мотоциклистов</h3>
+                        <div><img src="{% static 'images/image 11.png' %}"></div>
+                        <p>Профессиональное обучение вождению с нуля, включая теорию и практику для получения категирии А.</p>
+                    </a>
+                </div>
+                <div class="course">
+                    <a href="{% url 'main:info_course'%}">
+                        <h3>Курс для повышения квалификации</h3>
+                        <div><img src="{% static 'images/image 14.png' %}"></div>
+                        <p>Для опытных водителей, чтобы улучшить навыки вождения и знания ПДД. Переобучение с категории С на В</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Контакты</h2>
+				<div class="carta">
+					<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9e4cbcf4954045ea1469035082961eda7117bee9897109067b183ff88af05ef1&amp;width=1200&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+				</div>
+            <p>Адрес: ул. Литейная д. 12, Тула</p>
+            <p>Телефон: 8(953)960-59-05</p>
+			<p>Телефон: 8(919)089-10-76</p>
+            <p>Мы работаем: пн-пт 10:00-20:00, сб-вс 10:00-14:00</p>
+        </div>
+    </section>
+
+
+    <!-- Instructors Section -->
+    <section id="instructors">
+        <div class="container">
+            <h2>Наши преподаватели</h2>
+            <div class="instructor-list">
+                <div class="instructor">
+                    <h3>Иван Петров</h3>
+					<div><img src="{% static 'images/images.jfif' %}"></div>
+					<br>
+                    <p>Профессиональный инструктор с 10-летним стажем. Ведет курсы для начинающих и повышение квалификации.</p>
+                </div>
+                <div class="instructor">
+                    <h3>Григорий Иванов</h3>
+					<div><img src="{% static 'images/kuryanov-8f2d9c42.jpeg' %}"></div>
+					<br>
+                    <p>Профессиональный инструктор с 10-летним стажем. Ведет курсы для начинающих и повышение квалификации.</p>
+                </div>
+                <div class="instructor">
+                    <h3>Александр Сидоров</h3>
+					<div><img src="{% static 'images/5fc9f6bebf71b603095525.jpg' %}"></div>
+					<br>
+                    <p>Инструктор по вождению категории B, специализируется на безопасности и технике вождения.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2>Отзывы</h2>
+            <div class="testimonial-list">
+				<div style="width:1060px;height:550px;overflow:hidden;position:relative;">
+					<iframe style="width:100%;height:100%;border:1px solid #e6e6e6;border-radius:8px;box-sizing:border-box" src="https://yandex.ru/maps-reviews-widget/1054253545?comments"></iframe>
+					<a href="https://yandex.ru/maps/org/tsentralnaya_avtoshkola/1054253545/" target="_blank" style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:10px;font-family:YS Text,sans-serif;padding:0 20px;position:absolute;bottom:8px;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:14px;white-space:nowrap;padding:0 16px;box-sizing:border-box">Центральная автошкола на карте Тулы — Яндекс Карты</a>
+				</div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Центральная автошкола. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style_profile.css' %}">
+    {%block header %} {%endblock%}
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>Центральная автошкола</h2>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'users:profile'%}">Профиль</a></li>
+                    <li><a href="https://ruspdd.com/?etext=2202.pZBRdsS4LNlJJvPEZ_n0ibt8QNt_o32J9bERZX3kkH7FsN4HX-g5lY8xHhmXgl8AEXcEHGbi
+                    _lfDiVLl3OEgKXNxdndyd254Z3dxeG9wdWw.2e82de67ffb82b28930917996b48a774b9033d34&yclid=5349784343664394239">Курс теории</a></li>
+                    <li><a href="{% url 'schedule:timetable' %}">Курс практики</a></li>
+                    {%if user.is_admin or user.is_staff %}
+                        <li><a href="{% url 'scheduledit:timetable' %}">Расписание</a></li>
+                        <li><a href="{% url 'admin:index' %}">Админ панель</a></li>
+                    {%endif%}
+
+                    <li><a href="{% url 'users:logout'%}">Выход</a></li>
+                </ul>
+            </nav>
+        </aside>
+        {%block content %} {%endblock%}
+    </div>
+</body>

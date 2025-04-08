@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="{% static 'css/styles_authentication.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-box" id="login-box">
+            <h2>Авторизация</h2>
+            <form action="{% url 'users:login' %}" method="post">
+                {% csrf_token %}
+                <input type="text" name="username" id="id_username" placeholder="Логин" required>
+                <input type="password" name="password" id="id_password" placeholder="Пароль" required>
+                <button type="submit" class="btn">Войти</button>
+                <p>Нет аккаунта? <a href="{% url 'users:registration' %}">Регистрация</a></p>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
